@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">HealthandBeauty</string>
+    <string name="title_section1">Главная</string>
+    <string name="title_section2">Тесты</string>
+    <string name="title_section3">Мифы</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_general">General</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_general2">General2</string>
+    <string name="article_meat">Это мифы о мясе.</string>
+    <string name="article_milk">Это мифы о молоке.</string>
+    <string name="article_bread">Это мифы о хлебе.</string>
+</resources>

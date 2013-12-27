@@ -1,0 +1,104 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ru.vsu.app.General"
+    tools:ignore="MergeRootFrame" >
+
+<RadioGroup
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Вариант1"
+        android:id="@+id/radioButton"
+        android:checked="false"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="61dp"
+        android:layout_alignRight="@+id/linearLayout"
+        android:layout_alignEnd="@+id/linearLayout" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Вариант2"
+        android:id="@+id/radioButton2"
+        android:layout_alignParentStart="true"
+        android:checked="false"
+        android:layout_below="@+id/radioButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/radioButton"
+        android:layout_alignEnd="@+id/radioButton" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Вариант3"
+        android:id="@+id/radioButton3"
+        android:layout_alignParentStart="true"
+        android:checked="false"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/radioButton2"
+        android:layout_alignRight="@+id/radioButton2"
+        android:layout_alignEnd="@+id/radioButton2" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Вариант4"
+        android:id="@+id/radioButton4"
+        android:layout_alignParentStart="true"
+        android:checked="false"
+        android:layout_below="@+id/radioButton3"
+        android:layout_alignRight="@+id/linearLayout"
+        android:layout_alignEnd="@+id/linearLayout" />
+</RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Вопрос."
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_alignStart="@+id/linearLayout" />
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout"
+        android:weightSum="1"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Проверить"
+            android:id="@+id/button"
+            android:layout_above="@+id/linearLayout"
+            android:layout_alignLeft="@+id/linearLayout"
+            android:layout_alignStart="@+id/linearLayout" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Далее"
+            android:id="@+id/button2"
+            android:clickable="true"
+            android:enabled="false"
+            android:layout_alignTop="@+id/button"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="66dp" />
+    </LinearLayout>
+
+
+</RelativeLayout>

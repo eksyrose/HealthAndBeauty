@@ -20,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -185,6 +186,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 
         Button button, button2;
         TextView tv2, tv3, tv4;
+        AutoCompleteTextView a;
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -195,6 +197,10 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
             switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1:
                     rootView = inflater.inflate(R.layout.fragment_general, container, false);
+                    TextView tv = (TextView) rootView.findViewById(R.id.textView);
+                    tv.setText("Добро пожаловать! В этом приложении собраны материалы, " +
+                            "которые перевернут ваши представления о здоровье! Читайте и получайте пользу! " +
+                            "Все права на материалы принадлежат их авторам.");
                     /*button = (Button) rootView.findViewById(R.id.button);
                     button.setOnClickListener(new View.OnClickListener() {
 
@@ -217,7 +223,8 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
                                     startActivity(intent);
                                     break;
                                 case R.id.button2:
-
+                                    Intent intent2 = new Intent(getActivity(), General2.class);
+                                    startActivity(intent2);
                                     break;
                             }
                         }
@@ -232,6 +239,8 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
                     rootView = inflater.inflate(R.layout.fragment_general2, container, false);
                     tv2 = (TextView) rootView.findViewById(R.id.textView2);
                     tv3 = (TextView) rootView.findViewById(R.id.textView3);
+                    tv4 = (TextView) rootView.findViewById(R.id.textView4);
+                    //a=(AutoCompleteTextView) rootView.findViewById(R.id.autoCompleteTextView);
                     View.OnClickListener ocl3 = new View.OnClickListener() {
 
                         public void onClick(View v) {
@@ -244,10 +253,12 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
                                     message = getText(R.string.article_milk).toString();
                                     break;
                                 case R.id.textView4:
-                                    message = getText(R.string.article_bread).toString();
+                                    //message = getText(R.string.article_bread).toString();
+
                                     break;
                             }
-
+                                //tv4.setText(message);
+                                //a.setText(message);
                                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                                 builder.setTitle("Результат")
                                         .setMessage(message)

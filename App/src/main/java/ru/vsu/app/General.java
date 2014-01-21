@@ -5,6 +5,7 @@ import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
@@ -24,30 +25,56 @@ public class General extends Activity {
     Button button, button2;
     TextView tv;
     RadioButton r1, r2, r3, r4;
-    final int test_length=2;
+    int test_length;
     int count=-1;
     String [][] test;
+    Integer [][] answer;
+
+    protected void SetTextLength(int i) {
+        test_length=i;  // ПРАВИЛЬНЫЙ ВАРИАНТ ВЫДЕЛЯТЬ ЦВЕТОМ!!!
+    }
 
     protected void fill(){
         test = new String[][]{{"Какое количество свежих фруктов и овощей вы съедаете ежедневно?",
-                "Сколько"},
+                "Сколько часов в неделю вы обычно занимаетесь спортом?"},
                 {"Меньше 200 г (равносильно одному яблоку)", "Не занимаюсь спортом"},
                 {"200-500 г", "1-2 часа в неделю"},
                 {"500-1000 г", "3-7 часов в неделю"},
                 {"Более 1000 г", "Более 7 часов в неделю"}};
+        answer= new Integer[][]{ {0,0}, {0,0}, {0,0}, {1,1} };
+        SetTextLength(2);
     }
 
     protected void check(){
+        r1.setTextColor(Color.BLACK);
+        r2.setTextColor(Color.BLACK);
+        r3.setTextColor(Color.BLACK);
+        r4.setTextColor(Color.BLACK);
+        String message="";
         switch (count){
             case 0:
-        }
-        AlertDialog.Builder builder = new AlertDialog.Builder(General.this);
-        builder.setTitle("Результат")
-                .setMessage("Всемирная организация здравоохранения " +
+                message="Всемирная организация здравоохранения " +
                         "рекомендует ежедневно съедать не менее 500 граммов фруктов и овощей. " +
                         "Можно утверждать, что если в рационе нет овощей, то нет и нормального " +
                         "пищеварения. Овощи и фрукты, особенно сырые, активизируют секрецию желудка, " +
-                        "поджелудочной железы, желчного пузыря.")
+                        "поджелудочной железы, желчного пузыря.";
+                break;
+            case 1: message="Спорт - это основа здоровья! Даже не следя за своим питанием, " +
+                    "можно оставаться стройным и здоровым при условии регулярных занятий спортом (не менее 7 часов в неделю).";
+                break;
+        }
+        if (r1.isChecked()) r1.setTextColor(Color.RED);
+        if (r2.isChecked()) r2.setTextColor(Color.RED);
+        if (r3.isChecked()) r3.setTextColor(Color.RED);
+        if (r4.isChecked()) r4.setTextColor(Color.RED);
+
+        if (r1.isChecked()&&(answer[0][count]==1)) r1.setTextColor(Color.GREEN);
+        if (r2.isChecked()&&(answer[1][count]==1)) r2.setTextColor(Color.GREEN);
+        if (r3.isChecked()&&(answer[2][count]==1)) r3.setTextColor(Color.GREEN);
+        if (r4.isChecked()&&(answer[3][count]==1)) r4.setTextColor(Color.GREEN);
+        AlertDialog.Builder builder = new AlertDialog.Builder(General.this);
+        builder.setTitle("Результат")
+                .setMessage(message)
                 .setIcon(R.drawable.ic_launcher)
                 .setCancelable(false)
                 .setNegativeButton("ОК",
@@ -61,6 +88,10 @@ public class General extends Activity {
     }
 
     protected void setNext(){
+        r1.setTextColor(Color.BLACK);
+        r2.setTextColor(Color.BLACK);
+        r3.setTextColor(Color.BLACK);
+        r4.setTextColor(Color.BLACK);
         if (count<test_length-1) {
             ++count;
             tv.setText(test[0][count]);

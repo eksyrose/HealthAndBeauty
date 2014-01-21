@@ -8,13 +8,15 @@
 
 <RadioGroup
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/linearLayout"
+    android:id="@+id/radioGroup">
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Вариант1"
         android:id="@+id/radioButton"
-        android:checked="false"
+        android:checked="true"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -65,8 +67,11 @@
         android:text="Вопрос."
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/linearLayout"
-        android:layout_alignStart="@+id/linearLayout" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/radioGroup" />
 
 
     <LinearLayout
@@ -78,27 +83,27 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Проверить"
-            android:id="@+id/button"
-            android:layout_above="@+id/linearLayout"
-            android:layout_alignLeft="@+id/linearLayout"
-            android:layout_alignStart="@+id/linearLayout" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Далее"
-            android:id="@+id/button2"
-            android:clickable="true"
-            android:enabled="false"
-            android:layout_alignTop="@+id/button"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="66dp" />
     </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Проверить"
+        android:id="@+id/button"
+        android:layout_alignTop="@+id/button2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Далее"
+        android:id="@+id/button2"
+        android:clickable="true"
+        android:enabled="false"
+        android:layout_marginTop="87dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_toRightOf="@+id/button" />
 
 
 </RelativeLayout>
